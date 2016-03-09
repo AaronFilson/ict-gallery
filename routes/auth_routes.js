@@ -1,0 +1,42 @@
+const express = require('express');
+const User = require(__dirname + '/../models/user');
+const jsonParser = require('body-parser').json();
+const handleDBError = require(__dirname + '/../lib/handle_db_error');
+const basicHTTP = require(__dirname + '/../lib/basic_http');
+
+var authRouter = module.exports = exports = express.Router();
+
+authRouter.post('/signup', jsonParser, (req, res) => {
+  
+  var newUser = new User();
+  //allow passwords of 4
+  if (!((req.body.email || '').length && (req.body.password || '').length > 3)) {
+    return res.status(400).json({msg: 'Invalid username or password.'});
+  }
+
+  newUser.username = req.body.username || req.body.email;
+
+  newUser.authentication.email = req.body.email;
+
+  newUser.hashPassword(req.body.password);
+
+  newUser.save((err, data) => {
+    if (err) return handleDBError(err, res);
+    res.status(200).json({token: data.generateToken()}); //to be replaced with an auth token
+  });
+});
+
+authRouter.get('/signin', basicHTTP, (req, res) => {
+  User.findOne({'authentication.email': req.basicHTTP.email}, (err, user) => {
+    if (err) {
+      console.log(err);
+      return res.status(401).json({msg: 'User authentication failed.'});
+    }
+
+    if (!user) return res.status(401).json({msg: 'User authentication failed.'});
+
+    if (!user.comparePassword(req.basicHTTP.password)) return res.status(401).json({msg: 'User authentication failed.'});
+
+    res.json({token: user.generateToken()});
+  });
+});
