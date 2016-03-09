@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>A Fine Web Gallery</title>
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+<body data-ng-app="galsApp">
+  <div class="span" role="div" data-ng-controller="authController" data-ng-init="updateUsername()">
+    <header>
+      <p data-ng-if="username">{{'Hello ' + username}} <a href data-ng-click="logout()">logout</a></p>
+    </header>
+    <main data-ng-view>
+      <p>Stay tuned loading, or you have a javascript blocker active</p>
+      <img src="/img/salmons.gif" alt="loading">
+    </main>
+  </div>
+
+  <script src="bundle.js"></script>
+</body>
+</html>

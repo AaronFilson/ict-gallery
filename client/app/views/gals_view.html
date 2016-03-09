@@ -1,0 +1,30 @@
+<section data-ng-init="getAll()">
+  <h1>Your Fine Internet Images</h1>
+  <section data-ng-if="errors.length">
+    <h2>Errors: </h2>
+    <ul>
+    	<li data-ng-repeat="error in errors">{{error}}<button data-ng-click="dismissError(error)" alt="dismiss">Dismiss</button></li>
+    </ul>
+  </section>
+  <ul>
+    <gallery data-ng-repeat="gallery in gals" data-gallery-data="gallery">
+      <button data-ng-click="deleteGallery(gallery)">Delete Gallery</button>
+      <button data-ng-if="!gallery.editing" data-ng-click="toggleEdit(gallery)">Update Gallery</button>
+      <gallery-form
+        data-ng-if="gallery.editing" 
+        data-save="updateGallery(gallery)"
+        data-button-text="Update Gallery"
+        data-gallery="gallery"
+      >
+        <button type="button" data-ng-click="toggleEdit(gallery)">Cancel</button>
+      </gallery-form>
+    </gallery>
+  </ul>
+  <gallery data-gallery-data="newGallery">
+    <gallery-form
+      data-button-text="Create new Gallery"
+      data-gallery="newGallery"
+      data-save="createGallery(newGallery)"
+    ></gallery-form>
+  </gallery>
+</section>

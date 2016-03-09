@@ -1,0 +1,15 @@
+<li>
+  <span role="div" class="div">
+    <h3>{{galleryData.name}}</h3>
+    <h4>{{galleryData.topic}}</h4>
+    <p>
+      {{galleryData.description}}
+    </p>
+
+    <img src={{galleryData.mainImg}} alt={{galleryData.caption}} />
+    <img src={{galleryData.subImg1}} alt="Sub Image #1" />
+
+  </span>
+
+  <div role="actions" class="actions" data-ng-transclude></div>
+</li>

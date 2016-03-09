@@ -1,0 +1,13 @@
+<form data-ng-submit="save(gallery)">
+  <label for="name">Name:</label>
+  <input type="text" name="name" data-ng-model="gallery.name">
+
+  <label for="Main">Main Image:</label>
+  <input type="text" name="Main" data-ng-model="gallery.mainImg">
+
+  <label for="description">Flavor:</label>
+  <input type="text" name="description" data-ng-model="gallery.description">
+
+  <ng-transclude></ng-transclude>
+  <button type="submit">{{buttonText}}</button>
+</form>
