@@ -10,7 +10,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const bearsRouter = require(__dirname + '/routes/gals_routes');
+const galsRouter = require(__dirname + '/routes/gals_routes');
 const authRouter = require(__dirname + '/routes/auth_routes');
 const userRouter = require(__dirname + '/routes/user_routes');
 
