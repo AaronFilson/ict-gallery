@@ -1,0 +1,40 @@
+{
+  "name": "ict-gallery",
+  "version": "1.0.0",
+  "description": "ICT Gallery v1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronFilson/ict-gallery.git"
+  },
+  "keywords": [
+    "gallery",
+    "test",
+    "401"
+  ],
+  "author": "Aaron Filson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AaronFilson/ict-gallery/issues"
+  },
+  "homepage": "https://github.com/AaronFilson/ict-gallery#readme",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^5.7.0",
+    "mongoose": "^4.4.6"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^2.2.0",
+    "gulp-util": "^3.0.7",
+    "mocha": "^2.4.5"
+  }
+}
