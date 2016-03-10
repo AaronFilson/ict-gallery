@@ -2,6 +2,10 @@ const angular = require('angular');
 require('angular-route');
 const galsApp = angular.module('galsApp', ['ngRoute']);
 
+galsApp.config(function($sceProvider) {
+  $sceProvider.enabled(false);
+});
+
 require('./services')(galsApp);
 
 require('./gals')(galsApp);

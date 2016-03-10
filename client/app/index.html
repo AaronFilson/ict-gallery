@@ -9,7 +9,12 @@
   <div data-ng-controller="authController" data-ng-init="updateUsername()">
     <header>
       <p data-ng-if="username">{{'Hello ' + username}} <a href data-ng-click="logout()">logout</a></p>
+			<p>
+				GO TO GALLERY?
+				<a href="/#/home">yes? :)</a>
+			</p>
     </header>
+
     <main data-ng-view>
       <p>Stay tuned loading, or you have a javascript blocker active</p>
       <img src="/img/salmons.gif" alt="loading">

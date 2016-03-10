@@ -60,6 +60,10 @@
 	__webpack_require__(4);
 	const galsApp = angular.module('galsApp', ['ngRoute']);
 
+	galsApp.config(function($sceProvider) {
+	  $sceProvider.enabled(false);
+	});
+
 	__webpack_require__(6)(galsApp);
 
 	__webpack_require__(8)(galsApp);
@@ -31646,6 +31650,8 @@
 
 	  __webpack_require__(10)(app);
 	  __webpack_require__(11)(app);
+
+	  // require('./directives/simg_directive')(app);
 	};
 
 
