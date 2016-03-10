@@ -15,7 +15,7 @@ galleryRouter.get('/gals', (req, res) => {
 });
 
 galleryRouter.get('/mygals', jwtAuth, (req, res) => {
-  Gallery.find({userId: req.user._id}, (err, data) => {
+  Gallery.find({userId: req.user.id}, (err, data) => {
     if (err) return handleDBError(err, res);
 
     res.status(200).json(data);
@@ -25,7 +25,7 @@ galleryRouter.get('/mygals', jwtAuth, (req, res) => {
 
 galleryRouter.post('/gals', jwtAuth, jsonParser, (req, res) => {
   var newGallery = new Gallery(req.body);
-  newGallery.userId = req.user._id;
+  newGallery.userId = req.user.id;
   newGallery.save((err, data) => {
     if (err) return handleDBError(err, res);
 

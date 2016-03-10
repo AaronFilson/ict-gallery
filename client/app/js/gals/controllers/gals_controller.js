@@ -1,7 +1,7 @@
 var angular = require('angular');
 
 module.exports = function(app) {
-  app.controller('GalsController', ['$scope', '$http', 'cfResource', 'cfStore', function($scope, $http, Resource, cfStore) {
+  app.controller('GalsController', ['$scope', '$http', 'cfResource', function($scope, $http, Resource) {
     $scope.gals = [];
     $scope.errors = [];
     var galleryService = Resource('/gals');

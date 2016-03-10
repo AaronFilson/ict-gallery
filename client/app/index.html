@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/css/base.css">
 </head>
 <body data-ng-app="galsApp">
-  <div class="span" role="div" data-ng-controller="authController" data-ng-init="updateUsername()">
+  <div data-ng-controller="authController" data-ng-init="updateUsername()">
     <header>
       <p data-ng-if="username">{{'Hello ' + username}} <a href data-ng-click="logout()">logout</a></p>
     </header>

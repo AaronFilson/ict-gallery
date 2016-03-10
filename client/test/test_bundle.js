@@ -45,11 +45,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(1);
-	__webpack_require__(18);
+	__webpack_require__(17);
 
+	__webpack_require__(18);
 	__webpack_require__(19);
 	__webpack_require__(20);
-	__webpack_require__(21);
 
 
 /***/ },
@@ -62,8 +62,8 @@
 
 	__webpack_require__(6)(galsApp);
 
-	__webpack_require__(9)(galsApp);
-	__webpack_require__(13)(galsApp);
+	__webpack_require__(8)(galsApp);
+	__webpack_require__(12)(galsApp);
 
 	galsApp.config(['$routeProvider', function(routes) {
 	  routes
@@ -72,7 +72,7 @@
 	      templateUrl: '/views/gals_view.html'
 	    })
 	    .when('/', {
-	      redirectTo: '/home'
+	      redirectTo: '/signup'
 	    })
 	    .when('/signup', {
 	      controller: 'SignupController',
@@ -31565,32 +31565,11 @@
 
 	module.exports = function(app) {
 	  __webpack_require__(7)(app);
-	  __webpack_require__(8)(app);
 	};
 
 
 /***/ },
 /* 7 */
-/***/ function(module, exports) {
-
-	module.exports = function(app) {
-	  app.factory('cfStore', function() {
-	    var data = {};
-	    return {
-	      get: function(key) {
-	        return data[key];
-	      },
-	      set: function(key, value) {
-	        data[key] = value;
-	        return value;
-	      }
-	    };
-	  });
-	};
-
-
-/***/ },
-/* 8 */
 /***/ function(module, exports) {
 
 	var handleSuccess = function(callback) {
@@ -31659,25 +31638,25 @@
 
 
 /***/ },
-/* 9 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function(app) {
-	  __webpack_require__(10)(app);
+	  __webpack_require__(9)(app);
 
+	  __webpack_require__(10)(app);
 	  __webpack_require__(11)(app);
-	  __webpack_require__(12)(app);
 	};
 
 
 /***/ },
-/* 10 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var angular = __webpack_require__(2);
 
 	module.exports = function(app) {
-	  app.controller('GalsController', ['$scope', '$http', 'cfResource', 'cfStore', function($scope, $http, Resource, cfStore) {
+	  app.controller('GalsController', ['$scope', '$http', 'cfResource', function($scope, $http, Resource) {
 	    $scope.gals = [];
 	    $scope.errors = [];
 	    var galleryService = Resource('/gals');
@@ -31742,7 +31721,7 @@
 
 
 /***/ },
-/* 11 */
+/* 10 */
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
@@ -31761,7 +31740,7 @@
 
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
@@ -31785,19 +31764,19 @@
 
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function(app) {
+	  __webpack_require__(13)(app);
 	  __webpack_require__(14)(app);
 	  __webpack_require__(15)(app);
 	  __webpack_require__(16)(app);
-	  __webpack_require__(17)(app);
 	};
 
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
@@ -31870,7 +31849,7 @@
 
 
 /***/ },
-/* 15 */
+/* 14 */
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
@@ -31887,7 +31866,7 @@
 
 
 /***/ },
-/* 16 */
+/* 15 */
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
@@ -31903,7 +31882,7 @@
 
 
 /***/ },
-/* 17 */
+/* 16 */
 /***/ function(module, exports) {
 
 	module.exports = function(app) {
@@ -31927,7 +31906,7 @@
 
 
 /***/ },
-/* 18 */
+/* 17 */
 /***/ function(module, exports) {
 
 	/**
@@ -34775,7 +34754,7 @@
 
 
 /***/ },
-/* 19 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var angular = __webpack_require__(2);
@@ -34852,7 +34831,7 @@
 
 
 /***/ },
-/* 20 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var angular = __webpack_require__(2);
@@ -34874,11 +34853,11 @@
 
 
 /***/ },
-/* 21 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var angular = __webpack_require__(2);
-	var template = __webpack_require__(22);
+	var template = __webpack_require__(21);
 
 	describe('gallery form directive', () => {
 	  var $compile;
@@ -34926,10 +34905,10 @@
 
 
 /***/ },
-/* 22 */
+/* 21 */
 /***/ function(module, exports) {
 
-	module.exports = "<form data-ng-submit=\"save(gallery)\">\n  <label for=\"name\">Name:</label>\n  <input type=\"text\" name=\"name\" data-ng-model=\"gallery.name\">\n\n  <label for=\"Main\">Main Image:</label>\n  <input type=\"text\" name=\"Main\" data-ng-model=\"gallery.mainImg\">\n\n  <label for=\"description\">Flavor:</label>\n  <input type=\"text\" name=\"description\" data-ng-model=\"gallery.description\">\n\n  <ng-transclude></ng-transclude>\n  <button type=\"submit\">{{buttonText}}</button>\n</form>\n";
+	module.exports = "<form data-ng-submit=\"save(gallery)\">\n  <label for=\"name\">Name:</label>\n  <input type=\"text\" name=\"name\" data-ng-model=\"gallery.name\">\n\n  <label for=\"main\">Main Image:</label>\n  <input type=\"text\" name=\"main\" data-ng-model=\"gallery.mainImg\">\n\n  <label for=\"description\">Image description:</label>\n  <input type=\"text\" name=\"description\" data-ng-model=\"gallery.description\">\n\n  <ng-transclude></ng-transclude>\n  <button type=\"submit\">{{buttonText}}</button>\n</form>\n";
 
 /***/ }
 /******/ ]);

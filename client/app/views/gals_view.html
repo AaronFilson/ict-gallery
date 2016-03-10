@@ -1,4 +1,4 @@
-<section data-ng-init="getAll()">
+<section data-ng-init="">
   <h1>Your Fine Internet Images</h1>
   <section data-ng-if="errors.length">
     <h2>Errors: </h2>
@@ -11,7 +11,7 @@
       <button data-ng-click="deleteGallery(gallery)">Delete Gallery</button>
       <button data-ng-if="!gallery.editing" data-ng-click="toggleEdit(gallery)">Update Gallery</button>
       <gallery-form
-        data-ng-if="gallery.editing" 
+        data-ng-if="gallery.editing"
         data-save="updateGallery(gallery)"
         data-button-text="Update Gallery"
         data-gallery="gallery"

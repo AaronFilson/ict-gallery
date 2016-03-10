@@ -14,7 +14,7 @@ galsApp.config(['$routeProvider', function(routes) {
       templateUrl: '/views/gals_view.html'
     })
     .when('/', {
-      redirectTo: '/home'
+      redirectTo: '/signup'
     })
     .when('/signup', {
       controller: 'SignupController',
